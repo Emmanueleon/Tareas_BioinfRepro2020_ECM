@@ -1,0 +1,40 @@
+---
+title: <span style="color:green"> **Tarea 3.4**</span>
+author: "Emmanuel Cervantes"
+date: "1/26/2020"
+output: html_document
+---
+
+# Script para resolver la tarea 3.4
+
+### Primero limpiemos el ambiente de R
+```{r}
+rm(list = ls())
+```
+
+### Cargamos el archivo *reads.txt*
+```{r}
+reads <- read.delim("../data/reads.txt")
+```
+**Nota**:Primero pongamos como wd el directorio de bin que se encuentra dentro del directorio del proyecto
+
+### Visualizamos que se haya cargado de manera correcta
+```{r}
+head(reads,3)
+```
+
+### Seleccionemos la paleta de colores que queremos utilizar
+```{r}
+palette(c("#bf5746","#9559b7","#668f43"))
+```
+
+### Gráfiquemos con un barplot los datos nread por muestra
+```{r warning=FALSE}
+grafica_reads <- barplot(reads$nreads,
+                         col=reads$Library, 
+                         xlab = "Muestras", 
+                         ylab = "nreads",
+                         legend.text = TRUE, 
+                         fill=palette(c("#bf5746","#9559b7","#668f43")))
+```
+
